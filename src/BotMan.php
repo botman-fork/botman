@@ -235,6 +235,7 @@ class BotMan
         }
 
         $user = $this->getDriver()->getUser($this->getMessage());
+
         $this->cache->put('user_'.$this->driver->getName().'_'.$user->getId(), $user,
             $this->config['user_cache_time'] ?? 30);
 
@@ -488,7 +489,7 @@ class BotMan
 
             $parameters = $this->conversationManager->addDataParameters($this->message, $parameters);
 
-            if (call_user_func_array($callback, $parameters)) {
+            if (call_user_func_array($callback, $parameters) !== false) {
                 return;
             }
         }

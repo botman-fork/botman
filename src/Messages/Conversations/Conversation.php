@@ -8,9 +8,9 @@ use Spatie\Macroable\Macroable;
 use Illuminate\Support\Collection;
 use BotMan\BotMan\Interfaces\ShouldQueue;
 use BotMan\BotMan\Messages\Attachments\Audio;
-use BotMan\BotMan\Messages\Attachments\File;
 use BotMan\BotMan\Messages\Attachments\Image;
 use BotMan\BotMan\Messages\Attachments\Video;
+use BotMan\BotMan\Messages\Attachments\File;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Attachments\Contact;
 use BotMan\BotMan\Messages\Attachments\Location;
@@ -172,6 +172,7 @@ abstract class Conversation
      */
     public function repeat($question = '')
     {
+
         $conversation = $this->bot->getStoredConversation();
 
         if (! $question instanceof Question && ! $question) {
@@ -192,7 +193,8 @@ abstract class Conversation
                 return $callback;
             })->toArray();
         }
-        $this->ask($question, $next, $additionalParameters);
+
+        return $this->ask($question, $next, $additionalParameters);
     }
 
     /**
