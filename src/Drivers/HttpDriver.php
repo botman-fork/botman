@@ -31,7 +31,7 @@ abstract class HttpDriver implements DriverInterface
      * @param array $config
      * @param HttpInterface $http
      */
-    final public function __construct(Request $request, array $config, HttpInterface $http)
+    public function __construct(Request $request, array $config, HttpInterface $http)
     {
         $this->http = $http;
         $this->config = Collection::make($config);
@@ -110,5 +110,10 @@ abstract class HttpDriver implements DriverInterface
     public function serializesCallbacks()
     {
         return true;
+    }
+
+    public function setHttp(HttpInterface $http)
+    {
+        $this->http = $http;
     }
 }
