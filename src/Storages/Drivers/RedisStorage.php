@@ -14,7 +14,7 @@ class RedisStorage implements StorageInterface
     /**
      * @var Redis
      */
-    private $redis;
+    protected $redis;
     private $host;
     private $port;
     private $auth;
@@ -93,7 +93,7 @@ class RedisStorage implements StorageInterface
      * @param $key
      * @return string
      */
-    private function decorateKey($key)
+    protected function decorateKey($key)
     {
         return self::KEY_PREFIX.$key;
     }
