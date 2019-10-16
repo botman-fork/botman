@@ -9,10 +9,10 @@ interface StorageInterface
     /**
      * Save an item in the storage with a specific key and data.
      *
-     * @param  array $data
+     * @param  mixed $data
      * @param  string $key
      */
-    public function save(array $data, $key);
+    public function save($data, $key);
 
     /**
      * Retrieve an item from the storage by key.

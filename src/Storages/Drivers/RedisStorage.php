@@ -39,10 +39,10 @@ class RedisStorage implements StorageInterface
     /**
      * Save an item in the storage with a specific key and data.
      *
-     * @param  array $data
+     * @param  mixed $data
      * @param  string $key
      */
-    public function save(array $data, $key)
+    public function save($data, $key)
     {
         $this->redis->set($this->decorateKey($key), $data);
     }
